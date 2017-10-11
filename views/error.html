@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+{{reasons|raw}}
+{% if reasons == "您无权限访问这个页面，请访问" %}
+<a href="/">首页</a>登录
+{% endif %}
+</body>
+</html>

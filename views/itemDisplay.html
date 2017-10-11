@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>订单详情</title>
+    <link rel="stylesheet" href="stylesheets/itemDisplay.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+</head>
+<body>
+<header>订单详情{{comment|raw}}</header>
+<div class="container">
+    <ul>
+        <li><p class="key key-first">取件时间</p><p class="value value-first">{{item.time}}</p></li>
+        <li><p class="key">快递名称</p><p class="value">{{item.name}}</p></li>
+        <li><p class="key">取件地址</p><p class="value">{{item.from}}</p></li>
+        <li><p class="key">送达地址</p><p class="value">{{item.to}}</p></li>
+        <li><p class="key">手机号码</p><p class="value">{{item.phone}}</p></li>
+        <li><p class="key">回报(元)</p><p class="value">{{item.salary}}</p></li>
+        <li><p class="key key--secondary">备注</p></li>
+        <li><p class="key--wrap">{{item.note}}</p></li>
+    </ul>
+    <button class="submit">{{buttonName}}</button>
+</div>
+<script src={{script}}></script>
+</body>
+</html>

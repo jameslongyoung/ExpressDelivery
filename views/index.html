@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>西南交通大学快递代取平台</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+    <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<header id="header">
+    <p>代客</p>
+    <a href={{userPanel}}>个人中心</a>
+</header>
+<div class="container">
+    <div class="slider">
+        <div class="slider-img">
+            <ul class="slider-img-ul">
+                <li><img src="images/slider-5.jpg"></li>
+                <li><img src="images/slider-1.jpg"></li>
+                <li><img src="images/slider-2.jpg"></li>
+                <li><img src="images/slider-3.jpg"></li>
+                <li><img src="images/slider-4.jpg"></li>
+                <li><img src="images/slider-5.jpg"></li>
+                <li><img src="images/slider-1.jpg"></li>
+            </ul>
+        </div>
+    </div>
+    {% for val in item %}
+    <div class="item">
+        <div class="usercontainer">
+            <div class="user"></div>
+            <div class="name">{{val.creator}}</div>
+        </div>
+        <div class="mainPanel">
+            <div class="time">{{val.name}}</div>
+            <div class="price">{{val.salary}}</div>
+            <div class="place">{{val.from}}->{{val.to}}</div>
+        </div>
+        <div class="hidden">{{val._id}}</div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+<script src="javascripts/index.js"></script>
+<script src="javascripts/slider.js"></script>
+</html>

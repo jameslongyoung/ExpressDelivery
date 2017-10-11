@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>手机验证</title>
+    <link rel="stylesheet" href="stylesheets/telVerify.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+</head>
+<body>
+<header class="header">
+    手机号绑定
+</header>
+<div class="container">
+    <div class="container__item">
+        用户名：<input type="text" id="name">
+    </div>
+    <div class="container__item">
+        手机号：<input type="tel" id="tel">
+    </div>
+    <div class="container__item">
+        验证码：<input type="text" id="captcha">
+        <button id="getCaptcha">获取验证码</button>
+    </div>
+    <input type="button" value="提交" class="submit">
+    <script src="javascripts/telVerify.js"></script>
+</div>
+</body>
+</html>

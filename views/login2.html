@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>登录</title>
+    <link rel="stylesheet" href="stylesheets/login.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+</head>
+<body>
+<div class="container">
+    <div class="login">
+        <div class="login__top">
+            <img src="images/close.png">
+            <div class="decoration">
+                <div class="decoration__first"></div>
+                <div class="decoration__second"></div>
+                <div class="decoration__third"></div>
+            </div>
+        </div>
+        <div class="login__medium">
+            <img src="images/avtar.png" >
+            <div class="form">
+                <div class="form__id">
+                    <img src="images/form_input.jpg"><input type="text" id="studentId" placeholder="请输入学号" required="required">
+                </div>
+                <div class="form__password">
+                    <img src="images/form_password.jpg"><input type="password" id="password" placeholder="请输入密码" required="required">
+                </div>
+                <div class="form__captcha">
+                    <img src="{{captcha}}" id="captcha">
+                    <input type="text" placeholder="请输入验证码" id="ranstring" required="required">
+                    <input type="hidden" value="{{cookie}}" id="cookie">
+                </div>
+                <input type="button" value="Login" class="form__submit">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="javascripts/login.js"  type="application/javascript"></script>
+</body>
+
+</html>

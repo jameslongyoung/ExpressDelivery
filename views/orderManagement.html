@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>西南交通大学快递代取平台</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <link rel="stylesheet" href="stylesheets/orderManagement.css">
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+</head>
+<body>
+<header id="header">
+    {{title}}
+    <a href={{center}}>个人中心</a>
+</header>
+<div class="container">
+    {% for val in item %}
+        <div class="item">
+            <div class="mainPanel">
+                <div class="time">{{val.time}}</div>
+                <div class="price">{{val.salary}}</div>
+                <div class="place">{{val.from}}->{{val.to}}</div>
+                <div class="_id" style="display: none">{{val._id}}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<script src="javascripts/orderManagement.js"></script>
+</body>
+</html>

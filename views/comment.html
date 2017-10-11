@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>订单评价</title>
+    <link rel="stylesheet" href="stylesheets/comment.css">
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+</head>
+<body>
+<div class="container">
+    <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5" hidden/>
+        <label for="star5"></label>
+        <input type="radio" id="star4" name="rating" value="4" hidden/>
+        <label for="star4"></label>
+        <input type="radio" id="star3" name="rating" value="3" hidden/>
+        <label for="star3"></label>
+        <input type="radio" id="star2" name="rating" value="2" hidden/>
+        <label for="star2"></label>
+        <input type="radio" id="star1" name="rating" value="1" hidden/>
+        <label for="star1"></label>
+    </div>
+    <div class="comment">
+        <p id="comment">非常满意</p>
+        <textarea rows="10" placeholder="对快递小哥的建议(少于50字)" id="comment__textarea">{{val}}</textarea>
+        <button id="comment__button">提交</button>
+    </div>
+</div>
+{{star|raw}}
+</body>
+<script src="javascripts/comment.js"></script>
+</html>

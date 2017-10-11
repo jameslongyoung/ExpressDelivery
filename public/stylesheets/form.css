@@ -1,0 +1,73 @@
+*{
+    margin:0;
+    padding:0;
+}
+input,textarea,img,h,form{
+    display: block;
+}
+html,body{
+    height: 100%;
+    font-family: 微软雅黑;
+}
+img{
+    width: 100%;
+}
+input,textarea{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+#header{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form{
+    padding: 20px;
+}
+input[type="text"],input[type="tel"],textarea{
+    width: 100%;
+    font-size: 23px;
+}
+.formclass--secondary>select,.formclass--secondary>input{
+    display: inline-block;
+    width: 20%;
+    font-size: 23px;
+}
+.formclass--secondary>select{
+    font-size: 20px;
+    width: 25%;
+}
+.formclass--secondary>input{
+    font-size: 23px;
+    width: 70%;
+}
+.buttonclass{
+    height: 50px;
+    width: 80px;
+    font-size: 15px;
+    -webkit-appearance: none;
+    background-color: grey;
+    color: white;
+    border-radius: 2px;
+}
+.formclass>input[type="datetime-local"]{
+    font-size: 15px;
+}
+
+@media screen and (min-width: 580px){
+    body{
+        background-color: lightgrey;
+    }
+    img{
+        width: 580px;
+        margin: 0 auto;
+    }
+    #container{
+        background-color: white;
+        width: 580px;
+        margin: 0 auto;
+    }
+
+}

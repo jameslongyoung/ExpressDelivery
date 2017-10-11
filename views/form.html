@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>西南交通大学快递代取平台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="stylesheets/form.css">
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+</head>
+<body>
+<img src="images/bg.jpg">
+<div id="container">
+    <div id="header">
+        <h2>西南交通大学快递代取平台</h2>
+    </div>
+    <hr><br>
+    <div id="form">
+        <div class="formclass">取件时间：
+            <input type="datetime-local" id="time">
+        </div>
+        <div class="formclass formclass--secondary">快递名称：<br>
+            <select id="express">
+                <option>顺丰</option>
+                <option>圆通</option>
+                <option>申通</option>
+                <option>汇通</option>
+                <option>宅急送</option>
+                <option>EMS</option>
+            </select>
+            <input type="text" required placeholder="快递是什么" id="name">
+        </div>
+        <div class="formclass">取件地址：
+            <input type="text" required id="from">
+        </div>
+        <div class="formclass">送达地址：
+            <input type="text" required id="to">
+        </div>
+        <div class="formclass">报酬：
+            <input type="text" required id="salary">
+        </div>
+        <div class="formclass">备注：<br>
+            <textarea rows="5" required placeholder="不超过50字" id="note"></textarea>
+        </div>
+        <div class="formclass">
+            <button class="buttonclass">提交</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="javascripts/form.js"></script>
+</html>
+

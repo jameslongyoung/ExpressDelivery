@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>西南交通大学快递代取平台</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <link rel="stylesheet" href="stylesheets/BeAlert.css">
+    <link rel="stylesheet" href="stylesheets/login.css">
+</head>
+<body>
+<header>
+    代客
+</header>
+<div class="container">
+    <div class="form">
+        <ul>
+            <li>
+                <p style="display:inline-block" class="p__style">账号</p><input type="text" id="studentId" placeholder="请输入学号" required="required">
+            </li>
+            <li >
+                <p style="display: inline-block" class="p__style--secondary">密码</p><input type="password" id="password" placeholder="请输入密码" required="required">
+            </li>
+            <li style="height: 50px">
+              <div class="captcha"><img src="{{captcha}}" id="captcha" style="display: block;margin-top: 10px"></div><input type="text" placeholder="请输入验证码" id="ranstring" required="required" >
+            </li>
+            <li>
+                <input type="button" value="登录" class="form__submit">
+            </li>
+        </ul>
+        <input type="hidden" value="{{cookie}}" id="cookie">
+    </div>
+</div>
+<script src="javascripts/login.js"  type="application/javascript"></script>
+</body>
+</html>
