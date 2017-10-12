@@ -1,7 +1,6 @@
 
 *, *:before, *:after {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -61,7 +60,7 @@ input, button {
 .login {
     position: relative;
     height: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(146, 135, 187, 0.8)), to(rgba(0, 0, 0, 0.6)));
+    background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
     background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
     -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
     transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
@@ -95,8 +94,7 @@ input, button {
     width: 2.8rem;
     height: 5.2rem;
     background: #fff;
-    -webkit-box-shadow: inset -0.2rem -2rem 2rem rgba(0, 0, 0, 0.2);
-            box-shadow: inset -0.2rem -2rem 2rem rgba(0, 0, 0, 0.2);
+    box-shadow: inset -0.2rem -2rem 2rem rgba(0, 0, 0, 0.2);
 }
 .login__form {
     position: absolute;

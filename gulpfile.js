@@ -35,11 +35,10 @@ gulp.task("webpack",function () {
 gulp.task('postcss', function () {
     postcss    = require('gulp-postcss');
     sourcemaps = require('gulp-sourcemaps');
-    return gulp.src('test/*.css')
+    return gulp.src('public/stylesheets-v3/*.css')
         .pipe( sourcemaps.init() )
         .pipe( postcss([ require('autoprefixer') ]) )
-        .pipe( sourcemaps.write('.') )
-        .pipe( gulp.dest('build/') );
+        .pipe( gulp.dest('public/stylesheets') );
 });
 
 gulp.task("babel", function () {

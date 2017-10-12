@@ -11,14 +11,8 @@ header{
     width: 100%;
     font-size: 20px;
     height: 50px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
     display: flex;
 }
 .container{
@@ -27,15 +21,9 @@ header{
     background-size: contain;
     background: url("../images/bg2.png");
     background-position: top;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 .form{
     width: 90%;

@@ -9,26 +9,15 @@ a {
     text-decoration: none;
 }
 .header{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(80,52,250);
     height: 25%;
     color: white;
 }
 .header>img{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     width: 70px;
     height: 70px;
@@ -40,12 +29,8 @@ a {
 .menu{
     background-color:rgb(239,236,240);
     height: 75%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
 }
 .menu__item{
     height: 301px;
@@ -55,12 +40,8 @@ a {
 }
 .menu__item li{
     height: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
     border-bottom: 1px solid lightgray;
     position: relative;
 }

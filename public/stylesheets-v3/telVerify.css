@@ -1,8 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
 }
 html,body{
     height: 100%;
@@ -16,15 +15,9 @@ button,input[type="button"]{
 }
 .header{
     height: 30%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     font-size: 0.4rem;
     font-weight: 400;
     color:lightgreen;
@@ -32,24 +25,15 @@ button,input[type="button"]{
 .container{
     width: 100%;
     height: 80%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
 }
 .container__item{
     width: 100%;
     font-size:0.2rem;
     margin-bottom: 50px;
     padding-left: 0.5rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 @media screen and (max-width:350px) {
@@ -59,8 +43,6 @@ button,input[type="button"]{
 }
 .container__item>input{
     border: 1px solid lightgray;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     width: 40%;
     font-size: 0.2rem;
