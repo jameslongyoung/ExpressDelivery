@@ -12,6 +12,7 @@ module.exports = {
         telVerify:["./public/javascripts-es6/BeAlert.js","./public/javascripts-es6/telVerify.js"],
         userPanel:["./public/javascripts-es6/BeAlert.js","./public/javascripts-es6/userPanel.js"],
         slider:["./public/javascripts-es6/jquery-3.1.1.min.js","./public/javascripts-es6/slider.js"],
+        login2:["./public/javascripts-es6/BeAlert.js","./public/javascripts-es6/login2.js"],
     },
     output: {
         path: __dirname + "/public/javascripts/",//打包后的文件存放的地方

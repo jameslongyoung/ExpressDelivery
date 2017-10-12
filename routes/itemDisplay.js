@@ -4,6 +4,7 @@ var mongo=require("../model/mongo");
 var querystring=require("querystring");
 var redis=require("../model/redis");
 var async=require("async");
+var msg=require("../model/phoneMsg");
 
 router.get("/",function (req,res,next) {
     var queryStr=querystring.parse(req._parsedUrl.query);
@@ -199,12 +200,12 @@ router.post("/order",function (req,res,next) {
             }
             else
             {
-                mongo.update("items",{_id:queryStr.item,user:null},{$set:{user:status[0].name,is_order:true,userPhone:status[0].phone}},function (status) {
-                    callback(null,status);
+                mongo.update("items",{_id:queryStr.item,user:null},{$set:{user:status[0].name,is_order:true,userPhone:status[0].phone}},function (condition) {
+                    callback(null,condition,status);
                 })
             }
         },
-        function (status) {
+        function (status,condition) {
             if(status=="error"||status=="no auth"||status=="the goods can't be ordered by yourself")
             {
                 res.end(status);
@@ -215,6 +216,9 @@ router.post("/order",function (req,res,next) {
             }
             else
             {
+                msg.sendNoticemsg(condition[0].phone,condition[0].name,function (status) {
+                    console.log(status);
+                });
                 res.end("success");
             }
         }

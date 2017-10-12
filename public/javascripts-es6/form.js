@@ -54,8 +54,9 @@ document.querySelector(".buttonclass").addEventListener("click",function () {
             else
             {
                 alert("订单","发布成功",function () {
-                    window.history.go(-1);
-                    location.reload();
+                    if (/(iPhone|iPad|iPod)/i.test(navigator.userAgent)) {
+                        window.location.href = window.document.referrer;
+                    } else { window.history.go(-1);}
                 },{type:"success"});
 
             }

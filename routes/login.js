@@ -13,11 +13,18 @@ router.get("/",function (req,res,next) {
    async.waterfall([
        function (callback) {
            jiaowu.Get_Captcha(function (err,imgData,cookie) {
-               callback(null,err,imgData,cookie)
+               callback(null,err,imgData,cookie);
            });
        },
        function (err, imgData,cookie,callback) {
-            res.render("login.html",{captcha:"data:image/png;base64,"+new Buffer(imgData).toString("base64"),cookie:cookie});
+            if(err)
+            {
+                res.render("error.html","服务器错误");
+            }
+            else
+            {
+                res.render("login3.html",{captcha:"data:image/png;base64,"+new Buffer(imgData).toString("base64"),cookie:cookie});
+            }
        },
    ],function (err,result) {
        console.log(err,result);
