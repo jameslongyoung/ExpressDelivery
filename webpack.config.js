@@ -1,3 +1,4 @@
+var webpack=require("webpack");
 module.exports = {
     entry:  {
         comment:["./public/javascripts-es6/BeAlert.js","./public/javascripts-es6/comment.js"],
@@ -32,5 +33,8 @@ module.exports = {
                 },
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
+    ]
 }

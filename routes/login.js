@@ -11,6 +11,12 @@ var tools=require("../model/tools");
 var redis=require("../model/redis");
 var mongo=require("../model/mongo")
 router.get("/",function (req,res,next) {
+    var deviceAgent = req.headers["user-agent"].toLowerCase();
+    var agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/);
+    if(!agentID){
+        res.render("error.html",{reasons:"网站不支持pc端，请在移动端查看"});
+        return ;
+    }
    async.waterfall([
        function (callback) {
            jiaowu.Get_Captcha(1,function (err,imgData,cookie) {
@@ -20,7 +26,7 @@ router.get("/",function (req,res,next) {
        function (err, imgData,cookie,callback) {
             if(err)
             {
-                res.render("error.html","服务器错误");
+                res.render("error.html",{reasons:"服务器错误"});
             }
             else
             {

@@ -11,6 +11,21 @@ var sourcemaps=require("gulp-sourcemaps");
 var gulp = require("gulp");
 var babel = require("gulp-babel");
 var exec=require("child_process").exec;
+var minifycss=require('gulp-minify-css');
+uglify=require('gulp-uglify');
+
+
+gulp.task('minifycss',function(){
+    return gulp.src('public/stylesheets/*.css')      //设置css     //合并css文件到"order_query"
+        .pipe(minifycss())                    //压缩文件
+        .pipe(gulp.dest('public/styles'))            //输出文件目录
+});
+
+gulp.task('minifyjs',function(){
+    return gulp.src('public/javascripts/*.js')
+        .pipe(uglify())                    //压缩
+        .pipe(gulp.dest('dist/js'))            //输出
+});
 
 gulp.task("lessCompiler",function () {
     gulp.src(['public/less/*.less'])
@@ -26,7 +41,7 @@ gulp.task("auto",['lessCompiler','watchLess'],function () {
     console.log("Success");
 });
 
-gulp.task("webpack",function () {
+gulp.task("webpack",[],function () {
     exec("webpack",function (err,stdout,stderr) {
         console.log(err,stdout);
     })

@@ -10,6 +10,12 @@ var querystring=require("querystring");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    var deviceAgent = req.headers["user-agent"].toLowerCase();
+    var agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/);
+    if(!agentID){
+        res.render("error.html",{reasons:"网站不支持pc端，请在移动端查看"});
+        return ;
+    }
     var queryStr=querystring.parse(req._parsedUrl.query);
     async.waterfall([
        function (callback) {
