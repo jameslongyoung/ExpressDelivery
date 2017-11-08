@@ -11974,6 +11974,7 @@ module.exports = __webpack_require__(355);
 
 
 __webpack_require__(128);
+var type = 1;
 function ajax(method, url, data, callback) {
     var xmlhttprequest = new XMLHttpRequest();
     xmlhttprequest.open(method, url, true);
@@ -11988,6 +11989,27 @@ function ajax(method, url, data, callback) {
         callback("err");
     };
 };
+
+document.getElementById("ranstring").onfocus = function () {
+    var id = document.getElementById("studentId").value;
+    if (id.startsWith("2015")) {
+        type = 1;
+        ajax("get", "/captcha?type=" + type, "", function (responseText) {
+            console.log(responseText);
+            var result = JSON.parse(responseText);
+            document.getElementById("captcha").setAttribute("src", "data:image/png;base64," + result.imgData);
+            document.getElementById("cookie").setAttribute("value", result.cookie);
+        });
+    } else {
+        type = 0;
+        ajax("get", "/captcha?type=" + type, "", function (responseText) {
+            var result = JSON.parse(responseText);
+            document.getElementById("captcha").setAttribute("src", "data:image/png;base64," + result.imgData);
+            document.getElementById("cookie").setAttribute("value", result.cookie);
+        });
+    }
+};
+
 document.getElementsByClassName("login__submit")[0].addEventListener("click", function () {
     var id = document.getElementById("studentId").value;
     var password = document.getElementById("password").value;
@@ -11997,7 +12019,7 @@ document.getElementsByClassName("login__submit")[0].addEventListener("click", fu
         alert("请把信息输入完整");
         return;
     }
-    ajax("post", "/login", JSON.stringify({ id: id, password: password, captcha: captcha, cookie: cookie }), function (responseText) {
+    ajax("post", "/login", JSON.stringify({ type: type, id: id, password: password, captcha: captcha, cookie: cookie }), function (responseText) {
         if (responseText.error == "err") {
             alert("请求失败");
         } else {
@@ -12024,7 +12046,7 @@ document.getElementsByClassName("login__submit")[0].addEventListener("click", fu
     });
 });
 document.getElementById("captcha").addEventListener("click", function () {
-    ajax("get", "/captcha", "", function (responseText) {
+    ajax("get", "/captcha?type=" + type, function (responseText) {
         var result = JSON.parse(responseText);
         document.getElementById("captcha").setAttribute("src", "data:image/png;base64," + result.imgData);
         document.getElementById("cookie").setAttribute("value", result.cookie);

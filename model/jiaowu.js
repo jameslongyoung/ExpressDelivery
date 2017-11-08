@@ -8,24 +8,35 @@ var cherrio=require("cheerio");
 
 
 
-function Get_Captcha(callback) {
+function Get_Captcha(type,callback) {
+    //type=0 swjtu type=1 swjtu_em
+    let url="http://jiaowu.em.swjtu.edu.cn/servlet/GetRandomNumberToJPEG";
+    if(type==0)
+    {
+        url="http://jiaowu.swjtu.edu.cn/servlet/GetRandomNumberToJPEG"
+    }
     superagent
-        .get("http://jiaowu.em.swjtu.edu.cn/servlet/GetRandomNumberToJPEG")
+        .get(url)
         .end(function (err,sres) {
-            console.log(sres.header);
+            //console.log(sres.header);
             callback(err,sres.body,sres.header['set-cookie']);
         });
 }
 
-function Login(username,password,ranstring,globalcookie,callback) {
+function Login(type,username,password,ranstring,globalcookie,callback) {
     function ClearBr(key) {
         key = key.replace(/<\/?.+?>/g,"");
         key = key.replace(/[\r\n]/g, "");
         return key;
     }
+    let url="http://jiaowu.em.swjtu.edu.cn/servlet/UserLoginSQLAction";
+    if(type==0)
+    {
+        url="http://jiaowu.swjtu.edu.cn/servlet/UserLoginSQLAction"
+    }
     //ranstring表示验证码
     superagent
-        .post("http://jiaowu.em.swjtu.edu.cn/servlet/UserLoginSQLAction")
+        .post(url)
         .charset()
         .set('Content-Type','application/x-www-form-urlencoded')
         .set('Cookie','user_id=2015121613; user_type=student; user_style=modern; language=cn; '+globalcookie)
@@ -49,4 +60,4 @@ function Login(username,password,ranstring,globalcookie,callback) {
 module.exports={
     Get_Captcha:Get_Captcha,
     Login:Login,
-}
+};

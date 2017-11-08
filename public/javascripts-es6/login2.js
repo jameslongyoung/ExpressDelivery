@@ -1,4 +1,5 @@
-require("babel-polyfill")
+require("babel-polyfill");
+var type=1;
 function ajax(method,url,data,callback) {
     var xmlhttprequest=new XMLHttpRequest();
     xmlhttprequest.open(method,url,true);
@@ -15,6 +16,30 @@ function ajax(method,url,data,callback) {
         callback("err");
     }
 };
+
+document.getElementById("ranstring").onfocus=function () {
+    let id=document.getElementById("studentId").value;
+    if(id.startsWith("2015"))
+    {
+        type=1;
+        ajax("get","/captcha?type="+type,"",function (responseText) {
+            console.log(responseText)
+            let result=JSON.parse(responseText);
+            document.getElementById("captcha").setAttribute("src","data:image/png;base64,"+result.imgData);
+            document.getElementById("cookie").setAttribute("value",result.cookie);
+        });
+    }
+    else
+    {
+        type=0;
+        ajax("get","/captcha?type="+type,"",function (responseText) {
+            let result=JSON.parse(responseText);
+            document.getElementById("captcha").setAttribute("src","data:image/png;base64,"+result.imgData);
+            document.getElementById("cookie").setAttribute("value",result.cookie);
+        });
+    }
+};
+
 document.getElementsByClassName("login__submit")[0].addEventListener("click",function () {
     let id=document.getElementById("studentId").value;
     let password=document.getElementById("password").value;
@@ -25,7 +50,7 @@ document.getElementsByClassName("login__submit")[0].addEventListener("click",fun
         alert("请把信息输入完整");
         return ;
     }
-    ajax("post","/login",JSON.stringify({id:id,password:password,captcha:captcha,cookie:cookie}),function (responseText) {
+    ajax("post","/login",JSON.stringify({type:type,id:id,password:password,captcha:captcha,cookie:cookie}),function (responseText) {
         if(responseText.error=="err")
         {
             alert("请求失败");
@@ -65,9 +90,9 @@ document.getElementsByClassName("login__submit")[0].addEventListener("click",fun
     });
 });
 document.getElementById("captcha").addEventListener("click",function () {
-    ajax("get","/captcha","",function (responseText) {
+    ajax("get","/captcha?type="+type,function (responseText) {
         let result=JSON.parse(responseText);
         document.getElementById("captcha").setAttribute("src","data:image/png;base64,"+result.imgData);
         document.getElementById("cookie").setAttribute("value",result.cookie);
     })
-})
+});

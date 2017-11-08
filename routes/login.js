@@ -3,6 +3,7 @@
  * 客户端返回error="true"，服务端返回error:"error"
  */
 var express=require("express");
+var querystring=require("querystring");
 var router=express.Router();
 var jiaowu=require("../model/jiaowu");
 var async=require("async");
@@ -12,7 +13,7 @@ var mongo=require("../model/mongo")
 router.get("/",function (req,res,next) {
    async.waterfall([
        function (callback) {
-           jiaowu.Get_Captcha(function (err,imgData,cookie) {
+           jiaowu.Get_Captcha(1,function (err,imgData,cookie) {
                callback(null,err,imgData,cookie);
            });
        },
@@ -23,7 +24,7 @@ router.get("/",function (req,res,next) {
             }
             else
             {
-                res.render("login3.html",{captcha:"data:image/png;base64,"+new Buffer(imgData).toString("base64"),cookie:cookie});
+                res.render("login3.html",{captcha:"",cookie:""});
             }
        },
    ],function (err,result) {
@@ -39,7 +40,7 @@ router.post("/login",function (req,res,next) {             //login
         var studentInfo=JSON.parse(data);
         async.waterfall([
             function (callback) {
-                jiaowu.Login(studentInfo["id"],studentInfo["password"],studentInfo["captcha"],studentInfo["cookie"],function (err,text) {
+                jiaowu.Login(studentInfo["type"],studentInfo["id"],studentInfo["password"],studentInfo["captcha"],studentInfo["cookie"],function (err,text) {
                     callback(null,err,text);
                 });
             },
@@ -107,9 +108,10 @@ router.post("/login",function (req,res,next) {             //login
     })
 });
 router.get("/captcha",function (req,res,next) {        //get_captcha
+    let queryStr=querystring.parse(req._parsedUrl.query);
     async.waterfall([
         function (callback) {
-            jiaowu.Get_Captcha(function (err,imgData,cookie) {
+            jiaowu.Get_Captcha(queryStr["type"],function (err,imgData,cookie) {
                 callback(null,err,imgData,cookie)
             })
         },
